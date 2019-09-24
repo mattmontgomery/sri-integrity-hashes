@@ -1,0 +1,10 @@
+{
+    "test-script.js": {
+        "src": "test-script_1111.js",
+        "integrity": "sha512-test-banana"
+    },
+    "test-script-2.js": {
+        "src": "test-script_1111.js",
+        "integrity": "sha512-test-banana"
+    }
+}

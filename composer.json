@@ -1,0 +1,32 @@
+{
+    "name": "deseretdigital/sri-integrity-hashes",
+    "authors": [
+        {
+            "name": "Matt Montgomery",
+            "email": "montgomery.matt@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^8.3"
+    },
+    "require-dev": {
+        "brainmaestro/composer-git-hooks": "^2.8",
+        "friendsofphp/php-cs-fixer": "^2.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "DDM\\SRIIntegrityHash\\": "src/"
+        }
+    },
+    "scripts": {
+        "coverage": "phpunit --coverage-text",
+        "coverage-html": "mkdir -p coverage && rm -rf coverage/* && phpunit --coverage-html=coverage/ && open coverage/index.html",
+        "test": "phpunit",
+        "dev:fix": "php-cs-fixer fix src/"
+    },
+    "extra": {
+        "hooks": {
+            "precommit": ["phpunit", "php-cs-fixer fix src/"]
+        }
+    }
+}

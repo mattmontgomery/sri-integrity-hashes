@@ -1,0 +1,5 @@
+/vendor/
+/example/
+*.cache
+/build/
+/coverage/
