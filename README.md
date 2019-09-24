@@ -25,7 +25,7 @@ This can be easily generated from Webpack using the library [webpack-assets-mani
 
 ## Other formats
 
-In the case that aother formats are provided or desired, a new Loader implementing `LoaderInterface` may be passed to the `Loaders` class.
+In the case that other formats are provided or desired, a new Loader implementing `LoaderInterface` may be passed to the `Loaders` class.
 
 ## Example
 
