@@ -3,4 +3,7 @@ php:
   - '7.2'
   - '7.3'
 
-install: composer install
+install: travis_retry composer install --no-interaction --prefer-source --dev
+script: composer run test -- --coverage-clover=coverage.xml
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
