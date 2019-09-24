@@ -1,9 +1,10 @@
 {
     "name": "mattmontgomery/sri-integrity-hashes",
+    "license": "MIT",
     "authors": [
         {
             "name": "Matt Montgomery",
-            "email": "montgomery.matt@gmail.com"
+            "email": "mmontgomery@deseretdigital.com"
         }
     ],
     "require": {
