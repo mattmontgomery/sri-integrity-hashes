@@ -9,7 +9,7 @@
     "require": {
         "phpunit/phpunit": "^8.3",
         "splitbrain/php-cli": "^1.1",
-        "seld/cli-prompt": "^1.0"
+        "symfony/console": "^4.3"
     },
     "require-dev": {
         "brainmaestro/composer-git-hooks": "^2.8",
@@ -24,11 +24,13 @@
         "coverage": "phpunit --coverage-text",
         "coverage-html": "mkdir -p coverage && rm -rf coverage/* && phpunit --coverage-html=coverage/ && open coverage/index.html",
         "test": "phpunit",
-        "dev:fix": "php-cs-fixer fix src/"
+        "dev:fix": "php-cs-fixer fix src/",
+        "post-install-cmd": "cghooks add --ignore-lock",
+        "post-update-cmd": "cghooks update"
     },
     "extra": {
         "hooks": {
-            "precommit": ["phpunit", "php-cs-fixer fix src/"]
+            "pre-commit": ["phpunit", "php-cs-fixer fix src/"]
         }
     }
 }

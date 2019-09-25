@@ -33,7 +33,7 @@ class File
     }
     public function hash(array $algorithms = ["sha512"])
     {
-        return implode(" ",array_map(function($algo) {
+        return implode(" ", array_map(function ($algo) {
             return sprintf("%s-%s", $algo, hash($algo, $this->data));
         }, $algorithms));
     }

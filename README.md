@@ -46,13 +46,14 @@ echo sprintf("Script tag: %s\n", $file->toScript());
 
 ## Generator
 
-A script and set of classes exists for generating new asset maps. A script is present in `bin/generate.php` which can be used
+A script and set of classes exists for generating new asset maps. A command is present in `bin/console.php` which can be used
 to output JSON, usually to put into its own file. It takes any number of arguments and generates hashes for those files.
+See below for script usage.
 
 ### Script usage
 
 ```bash
-php bin/example.php https://apis.google.com/js/api.js https://apis.google.com/js/api-mock.js
+php bin/console.php generate --file=https://apis.google.com/js/api.js --file=https://apis.google.com/js/api-mock.js
 ```
 
 ### Reading from other formats

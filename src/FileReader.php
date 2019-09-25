@@ -15,7 +15,7 @@ class FileReader extends AbstractReader
         $file = $this->create($filename);
         try {
             $data = file_get_contents($filename);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             throw new ReaderException(sprintf("Could not read from %s", $filename));
         }
         $file->data = $data;
