@@ -30,7 +30,7 @@
     },
     "extra": {
         "hooks": {
-            "pre-commit": ["phpunit", "php-cs-fixer fix src/"]
+            "pre-commit": ["composer run test", "composer run dev:fix"]
         }
     }
 }
