@@ -1,3 +1,6 @@
+![](https://travis-ci.com/mattmontgomery/sri-integrity-hashes.svg?branch=master)
+[![codecov](https://codecov.io/gh/mattmontgomery/sri-integrity-hashes/branch/master/graph/badge.svg)](https://codecov.io/gh/mattmontgomery/sri-integrity-hashes)    
+
 # SRI Integrity Hash helper
 
 ## Loader/Loaders
