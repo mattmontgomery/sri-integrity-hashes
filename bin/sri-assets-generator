@@ -2,7 +2,14 @@
 
 <?php
 
-foreach (array(__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php', __DIR__ . '/vendor/autoload.php') as $file) {
+foreach ([
+    __DIR__ . '/../../../autoload.php',
+    __DIR__ . '/../../autoload.php',
+    __DIR__ . '/../autoload.php',
+    __DIR__ . '/../../vendor/autoload.php',
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/vendor/autoload.php'
+] as $file) {
     if (file_exists($file)) {
         define('SRI_COMPOSER_INSTALL', $file);
         break;
@@ -11,6 +18,7 @@ foreach (array(__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.p
 
 if (!defined('SRI_COMPOSER_INSTALL')) {
     fwrite(STDERR, "Dependencies must be setup using Composer");
+    exit(1);
 }
 
 require_once(SRI_COMPOSER_INSTALL);
