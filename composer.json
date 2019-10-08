@@ -33,5 +33,5 @@
             "pre-commit": ["composer run test", "composer run dev:fix"]
         }
     },
-    "bin": ["bin/sri-assets-generator.php"]
+    "bin": ["bin/sri-assets-generator"]
 }
