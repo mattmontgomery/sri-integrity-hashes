@@ -55,16 +55,33 @@ See below for script usage.
 
 ### Script usage
 
+If running from this repository:
+
 ```bash
-php bin/console.php generate --file=https://apis.google.com/js/api.js --file=https://apis.google.com/js/api-mock.js
+php bin/sri-assets-generator generate --file=https://apis.google.com/js/api.js --file=https://apis.google.com/js/api-mock.js
 ```
 
-### Reading from other formats
+If running from a composer installation:
 
-If you'd like to read from other formats — say, a JSON file with a list of hashes, or an API result, or the database, or something
-other than just using `file_get_contents`, you can create a new Reader implementing `ReaderInterface`. It can be passed in with
-as `Generator::read(ReaderInterface, resource)`.
+```bash
+./vendor/bin/sri-assets-generator ...
+```
 
-## Todo
+### Defining a script in composer.json
 
-- A set of scripts to generate a manifest and corresponding integrity hashes for any desired files (CLI?)
+If you want a quick and easy way to do the above, you might want to define a scripts entry in your `composer.json`.
+
+```js
+{
+  ...
+  "scripts": {
+    "generate-assets-map": "sri-assets-generator generate --file=https://apis.google.com/js/api.js"
+  }
+}
+```
+
+### Reading from other sources
+
+If you'd like to read from other sources  — say, a JSON file with a list of hashes, or an API result, or the database,
+or something other than just using `file_get_contents`, you can create a new Reader implementing `ReaderInterface`.
+It can be passed in with as `Generator::read(ReaderInterface, resource)`.
