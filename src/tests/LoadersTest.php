@@ -3,7 +3,7 @@
 namespace DDM\SRIIntegrityHash\Tests;
 
 use DDM\SRIIntegrityHash\Loaders;
-use DDM\SRIIntegrityHash\Loader;
+use DDM\SRIIntegrityHash\FileLoader;
 use DDM\SRIIntegrityHash\File;
 use PHPUnit\Framework\TestCase;
 
@@ -14,7 +14,7 @@ class LoadersTest extends TestCase
     public function testLoadersWithSingleRegistered()
     {
         $loaders = new Loaders();
-        $loaders->register(new Loader($this->fixturePath));
+        $loaders->register(new FileLoader($this->fixturePath));
 
         $file = $loaders->getFile($this->fixturePath, "test-script.js");
         $this->assertInstanceOf(File::class, $file);
@@ -39,12 +39,13 @@ class LoadersTest extends TestCase
         $this->assertIsString('string', $file->toScript());
         $this->assertIsArray($loaders->getFiles());
         $this->assertCount(2, $loaders->getFiles());
+        $this->assertCount(1, $loaders->getLoaders());
     }
     public function testLoadersWithMultipleRegistered()
     {
         $loaders = new Loaders();
-        $loaders->register(new Loader($this->fixturePath));
-        $loaders->register(new Loader($this->fixturePathSecondary));
+        $loaders->register(new FileLoader($this->fixturePath));
+        $loaders->register(new FileLoader($this->fixturePathSecondary));
 
         $file = $loaders->getFile($this->fixturePath, "test-script.js");
         $this->assertInstanceOf(File::class, $file);
@@ -81,7 +82,7 @@ class LoadersTest extends TestCase
     public function testLoaderesReturnsNullOnNotFoundFile()
     {
         $loaders = new Loaders();
-        $loaders->register(new Loader($this->fixturePath));
+        $loaders->register(new FileLoader($this->fixturePath));
         $this->assertNull($loaders->getFile($this->fixturePath, "spec.js"));
     }
 }

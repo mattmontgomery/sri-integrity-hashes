@@ -36,16 +36,19 @@ In the case that other formats are provided or desired, a new Loader implementin
 
 ```php
 use DDM\SRIIntegrityHash\Loaders;
-use DDM\SRIIntegrityHash\Loader;
 
 $loaders = new Loaders();
-$loaders->register(new Loader('example/assets.json'));
 
 $file = $loaders->getFile('example/assets.json', 'common.js');
 
 echo sprintf("Loaded %s from %s\n", $file->filename, $file->namespace);
 echo sprintf("Script tag: %s\n", $file->toScript());
 ```
+
+#### Using other loaders
+
+By default, the file loader (`DDM\SRIIntegrityHash\FileLoader`) will be used. You can register other autoloaders if you
+are loading via another source.
 
 ## Generator
 

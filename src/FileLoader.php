@@ -2,7 +2,7 @@
 
 namespace DDM\SRIIntegrityHash;
 
-class Loader extends AbstractLoader
+class FileLoader extends AbstractLoader
 {
     public $filename;
     public $files;
@@ -65,5 +65,10 @@ class Loader extends AbstractLoader
     public static function format(string $namespace, string $filename): string
     {
         return sprintf("%s:%s", $namespace, $filename);
+    }
+
+    public function getNamespace(): string
+    {
+        return $this->filename;
     }
 }

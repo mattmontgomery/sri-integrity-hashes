@@ -15,7 +15,7 @@ class Loaders
      */
     public function register(LoaderInterface $loader): void
     {
-        $this->loaders[] = $loader;
+        $this->loaders[$loader->getNamespace()] = $loader;
         $this->files = array_merge($this->files, $loader->files);
     }
 
@@ -29,10 +29,10 @@ class Loaders
     public function getFile(string $namespace, string $filename): ?File
     {
         if (empty($this->loaders[$namespace])) {
-            $this->register(new Loader($namespace));
+            $this->register(new FileLoader($namespace));
         }
         foreach ($this->files as $namespacedFilename => $file) {
-            if ($namespacedFilename === Loader::format($namespace, $filename)) {
+            if ($namespacedFilename === FileLoader::format($namespace, $filename)) {
                 return $file;
             }
         }
@@ -47,5 +47,13 @@ class Loaders
     public function getFiles(): array
     {
         return $this->files;
+    }
+
+    /**
+     * Return all registered loaders
+     */
+    public function getLoaders(): array
+    {
+        return $this->loaders;
     }
 }

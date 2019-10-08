@@ -2,7 +2,7 @@
 
 namespace DDM\SRIIntegrityHash\Tests;
 
-use DDM\SRIIntegrityHash\Loader;
+use DDM\SRIIntegrityHash\FileLoader as Loader;
 use DDM\SRIIntegrityHash\LoaderException;
 use DDM\SRIIntegrityHash\File;
 use PHPUnit\Framework\TestCase;
