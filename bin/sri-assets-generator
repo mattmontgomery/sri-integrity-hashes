@@ -10,7 +10,7 @@ foreach (array(__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.p
 }
 
 if (!defined('SRI_COMPOSER_INSTALL')) {
-    fwrite(STDERR, "Dependencies must be setup using Composer")
+    fwrite(STDERR, "Dependencies must be setup using Composer");
 }
 
 use Symfony\Component\Console\Application;
