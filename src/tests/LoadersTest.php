@@ -26,6 +26,20 @@ class LoadersTest extends TestCase
         $this->assertIsArray($loaders->getFiles());
         $this->assertCount(2, $loaders->getFiles());
     }
+    public function testLoadersWithAutoRegistered()
+    {
+        $loaders = new Loaders();
+
+        $file = $loaders->getFile($this->fixturePath, "test-script.js");
+        $this->assertInstanceOf(File::class, $file);
+        $this->assertIsString('string', $file->toScript());
+
+        $file = $loaders->getFile($this->fixturePath, "test-script-2.js");
+        $this->assertInstanceOf(File::class, $file);
+        $this->assertIsString('string', $file->toScript());
+        $this->assertIsArray($loaders->getFiles());
+        $this->assertCount(2, $loaders->getFiles());
+    }
     public function testLoadersWithMultipleRegistered()
     {
         $loaders = new Loaders();
@@ -38,7 +52,7 @@ class LoadersTest extends TestCase
         $this->assertEquals("sha512-test", $file->integrity);
         $this->assertIsString('string', $file->source);
         $this->assertIsString('string', $file->toScript());
-        
+
 
         $file = $loaders->getFile($this->fixturePath, "test-script-2.js");
         $this->assertInstanceOf(File::class, $file);
@@ -52,7 +66,7 @@ class LoadersTest extends TestCase
         $this->assertRegExp("/banana$/i", $file->integrity);
         $this->assertIsString('string', $file->source);
         $this->assertIsString('string', $file->toScript());
-        
+
 
         $file = $loaders->getFile($this->fixturePathSecondary, "test-script-2.js");
         $this->assertInstanceOf(File::class, $file);
