@@ -13,6 +13,8 @@ if (!defined('SRI_COMPOSER_INSTALL')) {
     fwrite(STDERR, "Dependencies must be setup using Composer");
 }
 
+require_once(SRI_COMPOSER_INSTALL);
+
 use Symfony\Component\Console\Application;
 use DDM\SRIIntegrityHash\Command\GeneratorCommand;
 
