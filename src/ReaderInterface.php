@@ -4,5 +4,5 @@ namespace DDM\SRIIntegrityHash;
 
 interface ReaderInterface
 {
-    public function read($resource): File;
+    public function read($resource, ReaderOptionsInterface $options): File;
 }

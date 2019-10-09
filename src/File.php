@@ -38,7 +38,7 @@ class File
     public function hash(array $algorithms = ["sha512"]): string
     {
         return implode(" ", array_map(function ($algo) {
-            return sprintf("%s-%s", $algo, base64_encode(hash($algo, $this->data)));
+            return sprintf("%s-%s", $algo, base64_encode(hash($algo, $this->data, true)));
         }, $algorithms));
     }
 }

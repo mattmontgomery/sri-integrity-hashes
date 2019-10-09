@@ -11,9 +11,9 @@ class FileTest extends \PHPUnit\Framework\TestCase
         $fixtureData = [
             'data' => "test-data"
         ];
-        $fixtureData['sha512'] = base64_encode(hash('sha512', $fixtureData['data']));
+        $fixtureData['sha512'] = base64_encode(hash('sha512', $fixtureData['data'], true));
         $fixtureData['sha512-hash'] = "sha512-{$fixtureData['sha512']}";
-        $fixtureData['sha256'] = base64_encode(hash('sha256', $fixtureData['data']));
+        $fixtureData['sha256'] = base64_encode(hash('sha256', $fixtureData['data'], true));
         $fixtureData['sha256-hash'] = "sha256-{$fixtureData['sha256']}";
 
         $file = new File();
@@ -28,9 +28,9 @@ class FileTest extends \PHPUnit\Framework\TestCase
         $fixtureData = [
             'data' => "test-data"
         ];
-        $fixtureData['sha512'] = base64_encode(hash('sha512', $fixtureData['data']));
+        $fixtureData['sha512'] = base64_encode(hash('sha512', $fixtureData['data'], true));
         $fixtureData['sha512-hash'] = "sha512-{$fixtureData['sha512']}";
-        $fixtureData['sha256'] = base64_encode(hash('sha256', $fixtureData['data']));
+        $fixtureData['sha256'] = base64_encode(hash('sha256', $fixtureData['data'], true));
         $fixtureData['sha256-hash'] = "sha256-{$fixtureData['sha256']}";
 
         $file = new File();
