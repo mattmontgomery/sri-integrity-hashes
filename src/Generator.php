@@ -4,7 +4,13 @@ namespace DDM\SRIIntegrityHash;
 
 class Generator
 {
+    /**
+     * @var DDM\SRIIntegrityHash\File[]
+     */
     private $files = [];
+    /**
+     * @var string[]
+     */
     private $algos = ['sha512', 'sha256'];
 
     public function __construct(?array $algos = null)

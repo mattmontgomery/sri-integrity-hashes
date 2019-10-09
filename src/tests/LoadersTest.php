@@ -23,6 +23,8 @@ class LoadersTest extends TestCase
         $file = $loaders->getFile($this->fixturePath, "test-script-2.js");
         $this->assertInstanceOf(File::class, $file);
         $this->assertIsString('string', $file->toScript());
+        $this->assertRegExp("/^sha512\-/", $file->hash());
+        $this->assertEquals('sha512-Y2Y4M2UxMzU3ZWVmYjhiZGYxNTQyODUwZDY2ZDgwMDdkNjIwZTQwNTBiNTcxNWRjODNmNGE5MjFkMzZjZTljZTQ3ZDBkMTNjNWQ4NWYyYjBmZjgzMThkMjg3N2VlYzJmNjNiOTMxYmQ0NzQxN2E4MWE1MzgzMjdhZjkyN2RhM2U=', $file->hash());
         $this->assertIsArray($loaders->getFiles());
         $this->assertCount(2, $loaders->getFiles());
     }

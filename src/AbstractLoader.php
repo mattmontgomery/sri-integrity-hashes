@@ -11,9 +11,15 @@ abstract class AbstractLoader implements LoaderInterface
     {
         return $this->files;
     }
-
+    /**
+     * @codeCoverageIgnoreStart
+     * This function is not currently testable as no Loader types implement a generic namespace function as above
+     */
     public function getNamespace(): string
     {
         return $this->namespace;
     }
+    /**
+     * @codeCoverageIgnoreEnd
+     */
 }
