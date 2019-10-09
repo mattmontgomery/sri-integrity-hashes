@@ -70,6 +70,11 @@ If running from a composer installation:
 ./vendor/bin/sri-assets-generator ...
 ```
 
+#### Arguments
+
+- `--file` — Pass any number of files with `--file` arguments.
+- `--ignore-ssl` — Ignore SSL verification in `FileReader`
+
 ### Defining a script in composer.json
 
 If you want a quick and easy way to do the above, you might want to define a scripts entry in your `composer.json`.
