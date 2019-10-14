@@ -15,11 +15,15 @@ class FileReader extends AbstractReader
     {
         $file = $this->create($filename);
         try {
-            $data = file_get_contents($filename, false, stream_context_create($options ? $options->toArray() : []));
+            $data = $this->fileGetContents($filename, $options ? $options->toArray() : []);
         } catch (\Exception $e) {
             throw new ReaderException(sprintf("Could not read from %s", $filename));
         }
         $file->data = $data;
         return $file;
+    }
+    public function fileGetContents(string $filename, array $options): string
+    {
+        return file_get_contents($filename, false, stream_context_create($options));
     }
 }

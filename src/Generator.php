@@ -24,9 +24,9 @@ class Generator
      * @param mixed $resource
      * @return File
      */
-    public function read(ReaderInterface $reader, $resource): File
+    public function read(ReaderInterface $reader, $resource, ReaderOptionsInterface $options = null): File
     {
-        $file = $reader->read($resource);
+        $file = $reader->read($resource, $options);
         $this->files[] = $file;
         return $file;
     }
