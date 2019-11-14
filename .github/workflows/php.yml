@@ -15,9 +15,12 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
-    
-    - name: Run tests
-      run: composer run test
+
+    - run: composer run test -- --coverage-clover=coverage.xml
+      continue-on-error: false
+
+    - name: Submit to codecov.io
+      run: bash <(curl -s https://codecov.io/bash)
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
