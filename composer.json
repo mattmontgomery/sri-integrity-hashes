@@ -1,5 +1,6 @@
 {
     "name": "mattmontgomery/sri-integrity-hashes",
+    "description": "A tool for generating subresource integrity hashes",
     "license": "MIT",
     "authors": [
         {
