@@ -1,14 +1,21 @@
-name: PHP Composer
+name: PHP unit tests and code coverage
 
 on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [7.2, 7.3]
 
     steps:
     - uses: actions/checkout@v1
+    - uses: shivammathur/setup-php@master
+      with: 
+        php-version: ${{matrix.php}}
+        coverage: xdebug
 
     - name: Validate composer.json and composer.lock
       run: composer validate
